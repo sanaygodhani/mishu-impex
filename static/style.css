@@ -113,6 +113,11 @@ section > div {
     .glass-nav {
         width: 100%;
     }
+    .glass-nav-light {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
 }
 
 /* Table styling */
