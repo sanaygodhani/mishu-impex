@@ -115,11 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form submission handling
     const contactForm = document.querySelector('form');
+    const formError = document.getElementById('form-error');
+
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Reset error state
+            if (formError) {
+                formError.classList.add('hidden');
+                formError.innerText = '';
+            }
+
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
+            
+            // Simple validation check for empty/whitespace-only fields
+            const isInvalid = Object.values(data).some(value => typeof value === 'string' && value.trim() === '');
+            
+            if (isInvalid) {
+                if (formError) {
+                    formError.innerText = 'Please complete all fields to proceed.';
+                    formError.classList.remove('hidden');
+                    formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
             
             // Show success state
             const submitBtn = contactForm.querySelector('button');

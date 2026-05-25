@@ -373,17 +373,18 @@
             
             <div class="glass-nav p-8 md:p-12 rounded-2xl border border-white/5 bg-white/5">
                 <form class="space-y-8">
+                    <div id="form-error" class="hidden text-red-400 text-[10px] uppercase tracking-[0.2em] py-3 px-4 border border-red-500/20 bg-red-500/5 rounded-lg text-center"></div>
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone mb-2">Full Name</label>
-                        <input type="text" class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="Enter your name">
+                        <input type="text" name="name" required class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="Enter your name">
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone mb-2">Email Address</label>
-                        <input type="email" class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="email@example.com">
+                        <input type="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="email@example.com">
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone mb-2">Inquiry Type</label>
-                        <select id="inquiry-type" class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors">
+                        <select id="inquiry-type" name="inquiry_type" required class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors">
                             <option value="quote" class="bg-obsidian">Request a Quote</option>
                             <option value="consultation" class="bg-obsidian">Book a Consultation</option>
                             <option value="sourcing" class="bg-obsidian">Sourcing Request</option>
@@ -391,7 +392,7 @@
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone mb-2">Message</label>
-                        <textarea id="contact-message" rows="4" class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="How can we help you?"></textarea>
+                        <textarea id="contact-message" name="message" required rows="4" class="w-full bg-transparent border-b border-white/20 py-2 focus:outline-none focus:border-white transition-colors" placeholder="How can we help you?"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-porcelain text-obsidian py-4 rounded-lg font-medium hover:bg-white transition-all uppercase tracking-widest text-xs">
                         Send Message
