@@ -1,0 +1,136 @@
+/* Custom Styles for Mishu Impex */
+
+:root {
+    --porcelain: #E0E0E0;
+    --satin: #B3B3B3;
+    --stone: #848484;
+    --graphite: #565656;
+    --obsidian: #2B2B2B;
+    --silver: #D1D5DB;
+    --silver-shiny: linear-gradient(135deg, #F3F4F6 0%, #D1D5DB 50%, #9CA3AF 100%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--porcelain);
+    color: var(--graphite);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Liquid Glass Effect - Dark Variation (Standard) */
+.glass-tag, .glass-card, .glass-nav {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    color: white;
+}
+
+/* Light Variation for Nav (if preferred on light background) */
+.glass-nav-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5),
+                0 4px 15px rgba(0, 0, 0, 0.05);
+    color: var(--obsidian);
+}
+
+/* Gradient border via mask (The "Liquid" part) - Updated for Silver */
+.glass-tag::before, .glass-card::before, .glass-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px; /* border thickness */
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(209, 213, 219, 0.1), rgba(255, 255, 255, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+h1, h2, h3, .font-serif {
+    font-family: 'Cormorant', serif;
+}
+
+/* Navigation styles */
+nav {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    will-change: transform, opacity;
+}
+
+.nav-hidden {
+    transform: translate(-50%, -160%) !important;
+    opacity: 0;
+}
+
+/* Cursor pointers for all interactive elements */
+a, button, [role="button"], input[type="submit"], select {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+/* Typography refinements */
+h1, h2 {
+    letter-spacing: -0.02em;
+}
+
+.tracking-tightest {
+    letter-spacing: -0.04em;
+}
+
+/* Form focus effects */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--silver) !important;
+}
+
+.bg-silver-shiny {
+    background: var(--silver-shiny);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section > div {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glass-nav {
+        width: 100%;
+    }
+}
+
+/* Table styling */
+table th {
+    letter-spacing: 0.1em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--porcelain);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--satin);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--stone);
+}
